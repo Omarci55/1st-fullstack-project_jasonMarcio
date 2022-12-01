@@ -7,7 +7,7 @@ export default function Container(props) {
   const [ user, setUser ] = useState([])
   const [ cart, setCart ] = useState([])
   const [ products, setProducts ] = useState([])
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
 
   useEffect( () => {
     fetch("/products")
