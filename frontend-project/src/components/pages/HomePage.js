@@ -1,12 +1,23 @@
-import React from 'react'
-import { Row, Col, Container, Carousel, Card, Button } from "react-bootstrap"
-import product from "../../product"
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Row, Col, Container, Card } from "react-bootstrap"
 import Product from '../Product'
 import CarouselHome from './CarouselHome'
+
 //import Products from './products/Products'
 
 const HomePage = () => {
+
+  const [ products, setProducts ] = useState([])
   
+  useEffect( () => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get('/products')
+
+      setProducts(data)
+    }
+    fetchProducts()
+  })
 
   return (
     <>
@@ -29,7 +40,7 @@ const HomePage = () => {
 
         <Row>
 
-          {product.map( product => (
+          {products.map( product => (
 
               <Col sm={12} md={8} lg={4} xl={3}>
                 <Product 
