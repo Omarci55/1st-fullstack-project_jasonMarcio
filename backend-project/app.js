@@ -1,5 +1,5 @@
 import express from "express";
-/* import morgan from "morgan"; */
+import morgan from "morgan"; 
 import mongoose from "mongoose";
 import products from "./data/products.js"
 
@@ -8,35 +8,27 @@ import dotenv from "dotenv";
 dotenv.config();
 
 
-
-
 //---Initializing the server------------------------------
 const app = express();
 const PORT = process.env.PORT || 10787;
 //-------------------------------------------
 
 
-
 //---Connecting with server------------------------------
-const connectDB = async () => {
-    
-}
-
-/* mongoose.connect(process.env.MONG0_URI, () => {
+mongoose.connect(process.env.MONG0_URI, () => {
     console.log("DB connection established!!")
-})  */
+}) 
 
 
 //---Middleware------------------------------
-/* app.use( morgan("dev") );
+app.use( morgan("dev") );
 
-app.use(express.json()); */
+app.use(express.json());
 
 
 
 
 //---Endpoints------------------------------
-
 
 app.get("/", (req, res) => {
     res.send("API running")

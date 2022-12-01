@@ -21,18 +21,17 @@ const usersSchema = new Schema({
         type: String, 
         required: true
     }, 
-    address: {
-        type: String
-    }, 
-    city: {
-        type: String
-    }, 
-    role: {
+    /* role: {
         type: String,
         enum: [
             "user", "manager"
         ],
         default: "user"
+    }, */
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false
     },
     token: {
         type: String
@@ -57,5 +56,9 @@ const usersSchema = new Schema({
         virtuals: true
     }
 })
+
+const UsersCollection = mongoose.model('User', usersSchema)
+
+export default UsersCollection;
 
 
