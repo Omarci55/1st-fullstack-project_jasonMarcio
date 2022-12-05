@@ -1,13 +1,13 @@
 import express from "express";
-/* import morgan from "morgan"; */
+import morgan from "morgan"; 
 import mongoose from "mongoose";
 import products from "./data/products.js"
+import productsRoute from "./routes/productsroute.js";
+
 
 //---Initializing the server------------------------------
 import dotenv from "dotenv";
 dotenv.config();
-
-
 
 
 //---Initializing the server------------------------------
@@ -16,41 +16,33 @@ const PORT = process.env.PORT || 10787;
 //-------------------------------------------
 
 
-
 //---Connecting with server------------------------------
-const connectDB = async () => {
-    
-}
-
-/* mongoose.connect(process.env.MONG0_URI, () => {
+mongoose.connect(process.env.MONG0_URI, () => {
     console.log("DB connection established!!")
-})  */
+}) 
 
 
 //---Middleware------------------------------
-/* app.use( morgan("dev") );
+app.use( morgan("dev") );
 
-app.use(express.json()); */
+app.use(express.json());
 
 
 
 
 //---Endpoints------------------------------
 
-
 app.get("/", (req, res) => {
     res.send("API running")
 })
 
-app.get("/products", (req, res) => {
-    res.json(products)
-})
+app.use("/products", productsRoute)
 
-app.get("/products/:id", (req, res) => {
+/* app.get("/products/:id", (req, res) => {
     const product = products.find( item => item._id === req.params.id)
     res.json(product)
 
-})
+}) */
 
 /* app.use("/users", upload.single("image"), usersRoute); */
 

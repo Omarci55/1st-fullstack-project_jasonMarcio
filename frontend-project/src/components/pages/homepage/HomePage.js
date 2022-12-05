@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } /* { useContext, } */ from 'react'
 import { Row, Col, Container, Card } from "react-bootstrap"
 //import { MyContext } from '../context/MyContext'
-import Product from '../Product'
+import Product from './ProductCard'
 import CarouselHome from './CarouselHome'
 
 //import Products from './products/Products'
@@ -20,11 +20,9 @@ const HomePage = () => {
     fetchProducts()
   }, [])
   
-  
   return (
     <>
-
-        <Container/>
+    <Container/>
 
         <Container>
             <Container>
@@ -38,20 +36,21 @@ const HomePage = () => {
               <Card.Img variant="top" src="/images/startseite_winter.jpg" />
             </Card> */}
         
+        <Container>
+          <Row>
 
-        <Row>
+            {products.map( product => (
 
-          {products.map( product => (
+                <Col sm={12} md={8} lg={4} xl={3}>
+                  <Product 
+                  key={product._id}
+                  product={product}/>
+                </Col>
+                  
+              ))}
 
-              <Col sm={12} md={8} lg={4} xl={3}>
-                <Product 
-                key={product._id}
-                product={product}/>
-              </Col>
-                
-            ))}
-
-        </Row>
+          </Row>
+        </Container>
     </>
   )
 }

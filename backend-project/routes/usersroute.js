@@ -2,7 +2,6 @@ import express from "express";
 
 const usersRoute = express.Router()
 
-
 //---Get all Users----------------------------
 usersRoute.get("/", verifyToken, isAdmin, getAllUsers)
 
