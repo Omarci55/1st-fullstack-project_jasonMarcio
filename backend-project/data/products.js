@@ -6,7 +6,7 @@ const products = [
     description:
       'Das St. Primus Heilwasser von Adelholzener unterstützt die Funktion von Magen und Darm sowie die Harnausscheidung. Zur Förderung der Verdauung zu den Hauptmahlzeiten ca. 300 ml trinken. Für die Unterstützung der Harnausscheidung über den Tag verteilt 1,5 bis 2,25 l trinken.',
     brand: 'Adel',
-    category: 'Water',
+    category: 'wine',
     price: 1.09,
     countInStock: 10,
     rating: 4.5,

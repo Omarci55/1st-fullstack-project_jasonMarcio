@@ -2,6 +2,8 @@ import express from "express";
 import morgan from "morgan"; 
 import mongoose from "mongoose";
 import products from "./data/products.js"
+import productsRoute from "./routes/productsroute.js";
+
 
 //---Initializing the server------------------------------
 import dotenv from "dotenv";
@@ -34,15 +36,13 @@ app.get("/", (req, res) => {
     res.send("API running")
 })
 
-app.get("/products", (req, res) => {
-    res.json(products)
-})
+app.use("/products", productsRoute)
 
-app.get("/products/:id", (req, res) => {
+/* app.get("/products/:id", (req, res) => {
     const product = products.find( item => item._id === req.params.id)
     res.json(product)
 
-})
+}) */
 
 /* app.use("/users", upload.single("image"), usersRoute); */
 
