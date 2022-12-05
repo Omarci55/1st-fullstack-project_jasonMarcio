@@ -17,11 +17,9 @@ import Order from './components/pages/Order'
 import EditProfileUser from './components/pages/EditProfileUser'
 import AdminPanel from './components/pages/AdminPanel'
 
-
-
 function App() {
   return (
-    <>
+    <div>
       <Router>
         
         <NavigationBar/>
@@ -62,9 +60,9 @@ function App() {
           </main>
         </Router>
 
-          <Footer/>
+        <Footer/>
 
-      </>
+      </div>
   );
 }
 
