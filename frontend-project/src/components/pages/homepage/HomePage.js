@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } /* { useContext, } */ from 'react'
 import { Row, Col, Container, Card } from "react-bootstrap"
 //import { MyContext } from '../context/MyContext'
-import Product from '../ProductCard'
+import Product from './ProductCard'
 import CarouselHome from './CarouselHome'
 
 //import Products from './products/Products'

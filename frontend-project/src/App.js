@@ -3,8 +3,8 @@ import {  BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { Container } from "react-bootstrap"
 import NavigationBar from './components/navigation/NavigationBar'
 import Footer from './components/Footer'
-import HomePage from "./components/pages/HomePage"
-import ProductPage from './components/pages/ProductPage'
+import HomePage from "./components/pages/homepage/HomePage"
+import ProductPage from './components/pages/SinlgeProductPage'
 import LoginPage from './components/pages/LoginPage'
 import ProfilePage from './components/pages/ProfilePage'
 import SignupPage from './components/pages/SignupPage'
@@ -26,11 +26,11 @@ function App() {
 
           <main className='py-3'>
 
-            <Container className='body-container'>
+            {/* <Container className='body-container'> */}
               
               <HomePage/>
 
-            </Container>
+            {/* </Container> */}
 
               <Routes>
                 <Route path="/" element={<HomePage/>}/>
