@@ -28,9 +28,9 @@ mongoose.connect(process.env.MONG0_URI, () => {
 
 
 //---Middleware------------------------------
-/* app.use( morgan("dev") );
+app.use( morgan("dev") );
 
-app.use(express.json()); */
+app.use(express.json());
 
 
 
