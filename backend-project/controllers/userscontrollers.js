@@ -107,7 +107,7 @@ export const loginUsers = async(req, res, next) => {
                     }, 
                     process.env.TOKEN_SECRET_KEY,
                     {
-                        expiresIn: "1 day",
+                        expiresIn: "7d",
                         issuer: "Me",
                         audience: "clients"
                     }
