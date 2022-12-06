@@ -33,4 +33,5 @@ const productsSchema = new Schema({
 
 const ProductsCollection = mongoose.model('product', productsSchema)
 
+
 export default ProductsCollection;

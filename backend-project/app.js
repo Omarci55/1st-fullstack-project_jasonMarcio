@@ -1,5 +1,7 @@
 import express from "express";
-import morgan from "morgan"; 
+
+import morgan from "morgan";
+
 import mongoose from "mongoose";
 import products from "./data/products.js"
 import productsRoute from "./routes/productsroute.js";
@@ -17,6 +19,7 @@ const PORT = process.env.PORT || 10787;
 
 
 //---Connecting with server------------------------------
+
 mongoose.connect(process.env.MONG0_URI, () => {
     console.log("DB connection established!!")
 }) 
@@ -32,17 +35,7 @@ app.use(express.json());
 
 //---Endpoints------------------------------
 
-app.get("/", (req, res) => {
-    res.send("API running")
-})
 
-app.use("/products", productsRoute)
-
-/* app.get("/products/:id", (req, res) => {
-    const product = products.find( item => item._id === req.params.id)
-    res.json(product)
-
-}) */
 
 /* app.use("/users", upload.single("image"), usersRoute); */
 
