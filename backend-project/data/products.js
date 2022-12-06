@@ -1,55 +1,44 @@
 const products = [
   {
-    _id: '1',
+    
     name: 'water-adel',
     image: '/images/water/water-adel.jpg',
     description:
       'Das St. Primus Heilwasser von Adelholzener unterstützt die Funktion von Magen und Darm sowie die Harnausscheidung. Zur Förderung der Verdauung zu den Hauptmahlzeiten ca. 300 ml trinken. Für die Unterstützung der Harnausscheidung über den Tag verteilt 1,5 bis 2,25 l trinken.',
     brand: 'Adel',
     category: 'wine',
-    price: 1.09,
-    countInStock: 10,
-    rating: 4.5,
-    numReviews: 12,
+    price: 1.09
+    
   },
   {
-    _id: '2',
+   
     name: 'water-badliebenwerda',
     image: '/images/water/water-badliebenwerda.jpg',
     description:
       'Das regionale Mineralwasser Bad Liebenwerda Naturell in der handlichen 0,75 l Glasflasche, ganz ohne Kohlensäure, ist ausgewogen mineralisiert und harmonisch im Geschmack. Es entspringt einer Quelle inmitten des Naturparks Niederlausitzer Heidelandschaft',
     brand: 'badliebenwerda',
     category: 'Water',
-    price: 9.99,
-    countInStock: 7,
-    rating: 4.0,
-    numReviews: 8,
+    price: 9.99
   },
   {
-    _id: '3',
+    
     name: 'water-evian',
     image: '/images/water/water-evian.jpg',
     description:
       'Evian von Danone stammt aus dem in den französischen Alpen gelegenen Ort Évian-les-Bains. Seit 1826 wird Evian offiziell abgefüllt. Das Wasser stammt aus der Cachat-Quelle, die in unmittelbarer Nähe zum Genfersee liegt.',
     brand: 'Evian',
     category: 'Water',
-    price: 9.29,
-    countInStock: 5,
-    rating: 3,
-    numReviews: 12,
+    price: 9.29
   },
   {
-    _id: '4',
+    
     name: 'water-gerolsteiner',
     image: '/images/water/water-gerolsteiner.jpg',
     description:
       'Der Ursprung von Gerolsteiner liegt in der Vulkaneifel bei Trier. Es entsteht ein Wasser mit einer seltenen Kombination aus kohlensäurehaltigem Vulkan- und mineralienreichem Dolomitgestein. 1888 wurde Mineralwasser in Tonkrüge abgefüllt, ab 1900 erstmals in Glasflaschen, seit 1998 als erster deutscher Brunnen Abfüllung in 1 l PET Mehrwegflasche.',
     brand: 'gerolsteiner',
     category: 'Water',
-    price: 1.99,
-    countInStock: 11,
-    rating: 5,
-    numReviews: 12,
+    price: 1.99
   },
   {
     _id: '5',
