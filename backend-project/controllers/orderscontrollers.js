@@ -40,8 +40,11 @@ export const createOrder = async (req, res, next) => {
         await createOrder.save()
 
         const user = await UsersCollection.findById(createOrder.userId)
-        user.orders.push(order._id)
+        user.orders.push(createOrder._id)
         await user.save()
+
+        res.json({success: true, createOrder})
+
     }
 
     catch(err) {
