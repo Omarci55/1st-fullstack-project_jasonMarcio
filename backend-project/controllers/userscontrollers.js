@@ -1,5 +1,6 @@
-import UsersCollection from "../models/usersschema"
+import UsersCollection from "../models/usersschema.js"
 import bcrypt from "bcrypt";
+import  jwt  from "jsonwebtoken";
 
 export const getAllUsers = async (req, res, next) => {
 
@@ -41,8 +42,13 @@ export const createUser = async (req, res, next) => {
     try {
 
         const user = new UsersCollection(req.body)
+        
+        if(req.file) {
 
-        user.profileImage = `http://localhost:10787/${req.file.filename}`
+            user.profileImage = `http://localhost:10787/${req.file.filename}`
+
+        }
+
         await user.save()
 
         console.log(user.fullName)
@@ -115,7 +121,7 @@ export const loginUsers = async(req, res, next) => {
 
                 const updatedUser = await UsersCollection.findByIdAndUpdate(user._id, {token: token}, {new:true})
 
-                res.cookie(token, token)
+                res.cookie("token", token)
                 res.json({success: true, data: user})
 
             } else {

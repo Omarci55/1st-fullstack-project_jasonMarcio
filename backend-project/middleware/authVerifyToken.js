@@ -5,11 +5,11 @@ import UsersCollection from "../models/usersschema.js"
 async function verifyToken(req, res, next) {
     try {
 
-        const { token } = req.headers
-        console.log(token)
+        //const { token } = req.headers
+        //console.log(token)
 
         // console.log(req.cookies.token)
-        // const token = req.cookies.token
+        const token = req.cookies.token
     
         const payload = jwt.verify(token, process.env.TOKEN_SECRET_KEY)
         console.log(payload)

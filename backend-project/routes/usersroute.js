@@ -1,6 +1,7 @@
 import express from "express";
+import bcrypt from "bcrypt" 
 import { createUser, deleteUser, getAllUsers, getSingleUser, loginUsers, updateUser } from "../controllers/userscontrollers.js";
-import verifyToken from "../middleware/authVerifyToken";
+import verifyToken from "../middleware/authVerifyToken.js";
 import { isAdmin } from "../middleware/isAdminMiddleware.js";
 import { usersValidation } from "../middleware/validationMiddleware.js";
 
@@ -13,7 +14,7 @@ usersRoute.get("/", verifyToken, isAdmin, getAllUsers)
 usersRoute.post("/login", loginUsers);
 
 //--- verify token ----------------------------
-usersRoute.get("/checkuserstoken", checkUsersToken);
+/* usersRoute.get("/checkuserstoken", checkUsersToken); */
 
 //--- get single users ----------------------------
 usersRoute.get("/:id", verifyToken, isAdmin, getSingleUser);
