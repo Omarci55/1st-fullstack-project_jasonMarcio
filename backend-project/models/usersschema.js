@@ -48,13 +48,25 @@ const usersSchema = new Schema({
             ref: "orders"
         }
     ]
-}, {
+}, 
+{
     toJSON: {
         virtuals: true
     },
     toObject: {
         virtuals: true
     }
+})
+
+usersSchema.virtual("fullName").get(function() {
+    return this.fName+" "+this.lName
+})
+
+usersSchema.pre("save", function(next) {
+    const hashedPassword = bcrypt.hashSync(this.password, 10)
+    this.password = hashedPassword;
+
+    next()
 })
 
 const UsersCollection = mongoose.model('User', usersSchema)

@@ -1,4 +1,5 @@
 import express from "express";
+import { createUser, deleteUser, getAllUsers, getSingleUser, loginUsers, updateUser } from "../controllers/userscontrollers";
 
 const usersRoute = express.Router()
 
@@ -12,16 +13,16 @@ usersRoute.post("/login", loginUsers);
 usersRoute.get("/checkuserstoken", checkUsersToken);
 
 //--- get single users ----------------------------
-usersRoute.get("/:id", verifyToken, isAdmin, getSingleUsers);
+usersRoute.get("/:id", verifyToken, isAdmin, getSingleUser);
 
 //--- create users ----------------------------
-usersRoute.post("/", usersValidation, createUsers)
+usersRoute.post("/", usersValidation, createUser)
 
 //--- user update own dates ----------------------------
-usersRoute.patch("/:id", verifyToken, isAdmin, updateUsers)
+usersRoute.patch("/:id", verifyToken, isAdmin, updateUser)
 
 //--- delete user----------------------------
-usersRoute.delete("/:id", verifyToken, isAdmin, deleteUsers)
+usersRoute.delete("/:id", verifyToken, isAdmin, deleteUser)
 
 
 export default usersRoute;
