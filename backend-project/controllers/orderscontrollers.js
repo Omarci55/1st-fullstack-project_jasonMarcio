@@ -1,7 +1,6 @@
 import OrdersCollection from "../models/ordersschema"
 import UsersCollection from "../models/usersschema"
 
-
 export const getAllOrders = async (req, res, next) => {
 
     try {
