@@ -1,5 +1,7 @@
 import express from "express";
-import { createOrder, getAllOrders, getSingleOrder } from "../controllers/orderscontrollers";
+import { createOrder, deleteOrder, getAllOrders, getSingleOrder, updateOrder } from "../controllers/orderscontrollers.js";
+import verifyToken from "../middleware/authVerifyToken.js";
+import { isAdmin } from "../middleware/isAdminMiddleware.js";
 
 const ordersRoute = express.Router()
 

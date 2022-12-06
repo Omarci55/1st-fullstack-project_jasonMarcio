@@ -1,5 +1,5 @@
-import OrdersCollection from "../models/ordersschema"
-import UsersCollection from "../models/usersschema"
+import UsersCollection from "../models/usersschema.js"
+import OrdersCollection from "../models/ordersschema.js"
 
 export const getAllOrders = async (req, res, next) => {
 

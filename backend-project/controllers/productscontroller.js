@@ -6,8 +6,6 @@ export const getAllProducts = async (req, res, next) => {
     try {
         // console.log(req.query.category)
         const products = await ProductsCollection.find()
-        async (req, res, next) => {
-            const products =  await ProductsCollection.find()
             
                 if(req.query.category){
                     // console.log(req.query.category)
@@ -16,8 +14,7 @@ export const getAllProducts = async (req, res, next) => {
                 } else {
                     res.send({success: true, data: products})
                 }
-            }
-    } 
+    }
     catch(err) {
         next(err)
     }

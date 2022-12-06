@@ -5,14 +5,30 @@ import products from "./data/products.js"
 import productsRoute from "./routes/productsroute.js";
 import usersRoute from "./routes/usersroute.js";
 import ordersRoute from "./routes/ordersroute.js";
-
+import multer from "multer"
+import cookieParser from "cookie-parser";
 
 
 //---------------------------------
 import dotenv from "dotenv";
 dotenv.config();
 
+//----------------------------
+const storage = multer.diskStorage( {
+    destination:function(req, file, cb) {
+        //in which folder should I store?
+        let fullPath = "./upload";
+        cb(null, fullPath)
+    },
+    filename: function(req, file, cb) {
+        let fileName = Date.now()+file.originalname
+        cb(null, fileName)
+    }
+})
 
+const upload = multer({
+    storage: storage
+})
 //---Initializing the server------------------------------
 const app = express();
 const PORT = process.env.PORT || 10787;
@@ -31,6 +47,7 @@ app.use( morgan("dev") );
 
 app.use(express.json());
 
+app.use(cookieParser())
 
 //---Endpoints------------------------------
 
