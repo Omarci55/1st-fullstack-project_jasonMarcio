@@ -1,6 +1,8 @@
 import express from "express";
 import { createUser, deleteUser, getAllUsers, getSingleUser, loginUsers, updateUser } from "../controllers/userscontrollers.js";
 import verifyToken from "../middleware/authVerifyToken";
+import { isAdmin } from "../middleware/isAdminMiddleware.js";
+import { usersValidation } from "../middleware/validationMiddleware.js";
 
 const usersRoute = express.Router()
 
@@ -24,6 +26,5 @@ usersRoute.patch("/:id", verifyToken, isAdmin, updateUser)
 
 //--- delete user----------------------------
 usersRoute.delete("/:id", verifyToken, isAdmin, deleteUser)
-
 
 export default usersRoute;
