@@ -1,10 +1,10 @@
 import { cookie }from "express-validator"
 import jwt from "jsonwebtoken"
-import UsersCollection from "../models/usersschema"
+import UsersCollection from "../models/usersschema.js"
 
 async function verifyToken(req, res, next) {
     try {
-        
+
         const { token } = req.headers
         console.log(token)
 
