@@ -15,5 +15,3 @@ productsRoute.patch("/:id", updateProduct)
 productsRoute.delete("/:id", deleteRecord)
 
 export default productsRoute;
-
-

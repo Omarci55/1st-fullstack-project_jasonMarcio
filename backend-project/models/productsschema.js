@@ -4,10 +4,13 @@ const Schema = mongoose.Schema;
 
 const productsSchema = new Schema({
     name: {
-        type: String,
+        type:String, 
         required: true
     },
-    category: {
+    img: {
+        type: String
+    },
+    description: {
         type: String, 
         required: true
     },
@@ -15,24 +18,20 @@ const productsSchema = new Schema({
         type: String, 
         required: true
     },
+    category: {
+        type: String, 
+        required: true
+    },
     price: {
         type: Number, 
         required: true
     },
-    description: {
-        type: String, 
-        required: true
-    },
-    img: {
-        type: String, 
-        required: true
-    },
-    inventoryCount: {
-        type: Number, 
-        required: true
-    },
+},
+{
+    timestamps: true
 })
 
-const ProductsCollection = mongoose.model("products", productsSchema);
+const ProductsCollection = mongoose.model('product', productsSchema)
+
 
 export default ProductsCollection;

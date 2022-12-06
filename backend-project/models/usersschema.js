@@ -21,18 +21,17 @@ const usersSchema = new Schema({
         type: String, 
         required: true
     }, 
-    address: {
-        type: String
-    }, 
-    city: {
-        type: String
-    }, 
-    role: {
+    /* role: {
         type: String,
         enum: [
             "user", "manager"
         ],
         default: "user"
+    }, */
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false
     },
     token: {
         type: String
@@ -49,7 +48,8 @@ const usersSchema = new Schema({
             ref: "orders"
         }
     ]
-}, {
+}, 
+{
     toJSON: {
         virtuals: true
     },
@@ -57,5 +57,20 @@ const usersSchema = new Schema({
         virtuals: true
     }
 })
+
+usersSchema.virtual("fullName").get(function() {
+    return this.fName+" "+this.lName
+})
+
+usersSchema.pre("save", function(next) {
+    const hashedPassword = bcrypt.hashSync(this.password, 10)
+    this.password = hashedPassword;
+
+    next()
+})
+
+const UsersCollection = mongoose.model('User', usersSchema)
+
+export default UsersCollection;
 
 

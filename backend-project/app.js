@@ -1,5 +1,7 @@
 import express from "express";
+
 import morgan from "morgan";
+
 import mongoose from "mongoose";
 import products from "./data/products.js"
 import productsRoute from "./routes/productsroute.js";
@@ -16,11 +18,7 @@ const PORT = process.env.PORT || 10787;
 //-------------------------------------------
 
 
-
 //---Connecting with server------------------------------
-// const connectDB = async () => {
-    
-// }
 
 mongoose.connect(process.env.MONG0_URI, () => {
     console.log("DB connection established!!")
@@ -38,9 +36,6 @@ app.use(express.json());
 //---Endpoints------------------------------
 
 
-app.use("/products", productsRoute)
-
-// app.use("/products/:id", productsRoute)
 
 /* app.use("/users", upload.single("image"), usersRoute); */
 
