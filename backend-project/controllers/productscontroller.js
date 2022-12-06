@@ -1,5 +1,5 @@
 import ProductsCollection from "../models/productsschema.js"
-import products from "../data/products.js"
+//import products from "../data/products.js"
 
 export const getAllProducts = async (req, res, next) => {
     
@@ -11,7 +11,7 @@ export const getAllProducts = async (req, res, next) => {
             
                 if(req.query.category){
                     // console.log(req.query.category)
-                    const filteredProducts = products.filter(product => product.category === req.query.category)
+                    const filteredProducts = products.filter(product => product.category.toLowerCase() === req.query.category.toLowerCase())
                     res.send({success: true, data: filteredProducts})
                 } else {
                     res.send({success: true, data: products})
@@ -56,7 +56,7 @@ export const updateProduct = async (req, res, next)=> {
     }
 }
 
-export const deleteRecord = async (req, res, next) => {
+export const deleteProduct = async (req, res, next) => {
     try{
         const {id} = req.params
         const existingProduct = await ProductsCollection.findById(id)
@@ -72,26 +72,3 @@ export const deleteRecord = async (req, res, next) => {
     }
 }   
 
-// import ProductsCollection from "../models/productsschema.js"
-// import products from "../data/products.js"
-
-// export const getAllProducts = async (req, res, next) => {
-    
-//     try {
-//         console.log(req.query.category)
-        
-//       /*   const products = await ProductsCollection.find() */
-//         if(req.query.category) {
-//             console.log(req.query.category)
-//             const  filteredProducts = products.filter(product => product.category.toLowerCase() === req.query.category.toLowerCase())
-
-//             res.json({success: true, data: filteredProducts})
-//         } else {
-//             res.json({success: true, data: products})
-//         }
-        
-//     }catch(err){
-//         next(err)
-//     }
-
-// }

@@ -1,13 +1,14 @@
 import express from "express";
-
 import morgan from "morgan";
-
 import mongoose from "mongoose";
 import products from "./data/products.js"
 import productsRoute from "./routes/productsroute.js";
+import usersRoute from "./routes/usersroute.js";
+import ordersRoute from "./routes/ordersroute.js";
 
 
-//---Initializing the server------------------------------
+
+//---------------------------------
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -31,17 +32,14 @@ app.use( morgan("dev") );
 app.use(express.json());
 
 
-
-
 //---Endpoints------------------------------
 
 
+app.use("/users", upload.single("image"), usersRoute);
 
-/* app.use("/users", upload.single("image"), usersRoute); */
+app.use("/products", upload.single("image"), productsRoute);
 
-/* app.use("/products", upload.single("image"), productsRoute); */
-
-/* app.use("/orders", ordersRoute); */
+app.use("/orders", ordersRoute);
 //-------------------------------------------
 
 
