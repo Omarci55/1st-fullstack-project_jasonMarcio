@@ -1,8 +1,39 @@
 import React from 'react'
-import { Form, Button, Container, Row, Col, InputGroup } from "react-bootstrap"
+import { Form, Button, Container, Row, Col, InputGroup, /* Toast, FormGroup */ } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 export default function SignupPage() {
+
+  const navigate = useNavigate()
+
+  const registerUser = (event) => {
+    event.preventDefault()
+    
+    const data = new FormData(event.target)
+
+    // sending data to backend
+    fetch("http://localhost:10787/users",
+      {method: "POST", body: data} //--> attaching data to body
+    )
+    .then(res => res.json()) // res coming from server
+    .then( result => {
+
+      if(result.success){
+         toast.success('Sign Up Successful!')
+         setTimeout(() => {
+          navigate("/login") // --> redirect user to /login after result.success evaluated true
+         }, 2000)
+
+      } else {
+        toast.error(JSON.stringify(result.message))
+
+      }
+    })
+    
+  }
+
 
   return (
 
@@ -84,10 +115,12 @@ export default function SignupPage() {
             </Form.Group>
         </Row> */}
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onSubmit={registerUser}>
             Submit
         </Button>
     </Form>
+
+     <Toaster position='top-center' />
 
     </Container>
   )
