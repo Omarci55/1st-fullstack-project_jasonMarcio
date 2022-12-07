@@ -1,5 +1,5 @@
 export const isAdmin = (req, res, next) => {
-    if((req.user.role === "admin")){
+    if((req.user.isAdmin)){
         next()
     } else {
         console.log(req.params.id, req.user._id.toString())
