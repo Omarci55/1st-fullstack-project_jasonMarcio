@@ -5,3 +5,4 @@ export default function EditProfileUser() {
     <div>EditProfileUser</div>
   )
 }
+ 

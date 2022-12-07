@@ -1,17 +1,17 @@
 import React from 'react'
 import {  BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { Container } from "react-bootstrap"
-import NavigationBar from './components/navigation/NavigationBar'
+import NavigationBar from './components/header/NavigationBar'
 import Footer from './components/Footer'
 import HomePage from "./components/pages/homepage/HomePage"
-import ProductPage from './components/pages/SinlgeProductPage'
+import ProductPage from './components/pages/SingleProductPage'
 import LoginPage from './components/pages/LoginPage'
 import ProfilePage from './components/pages/ProfilePage'
 import SignupPage from './components/pages/SignupPage'
-import Water from './components/pages/products/Water'
-import Bier from './components/pages/products/Bier'
-import Wines from './components/pages/products/Wines'
-import Soda from './components/pages/products/Soda'
+import Water from './components/pages/categories/Water'
+import Bier from './components/pages/categories/Bier'
+import Wines from './components/pages/categories/Wines'
+import Soda from './components/pages/categories/Soda'
 import Cart from './components/pages/CartPage'
 import Order from './components/pages/Order'
 import EditProfileUser from './components/pages/EditProfileUser'
@@ -21,18 +21,18 @@ function App() {
   return (
     <div>
       <Router>
-        
+
         <NavigationBar/>
 
-          <main className='py-3'>
+        <main className='py-3'>
 
-            {/* <Container className='body-container'> */}
+        <Container className='body-container'>
               
-              <HomePage/>
+          {/* <HomePage/> */}
 
-            {/* </Container> */}
+        </Container>
 
-              <Routes>
+          <Routes>
                 <Route path="/" element={<HomePage/>}/>
                 {/* <Route path="/" component={HomePage} exact/>  */} 
 
@@ -55,7 +55,7 @@ function App() {
 
                 <Route path="/admin" element={  <AdminPanel/> } />
 
-              </Routes>
+          </Routes>
 
           </main>
         </Router>

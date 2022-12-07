@@ -12,7 +12,7 @@ const ProductPage = ({match})  => {
         const fetchProduct = async () => {
           const { data } = await axios.get(`/products/${match.params.id}`)
     
-          setProduct(data)
+          setProduct(data.data)
         }
         fetchProduct()
       }, [match])

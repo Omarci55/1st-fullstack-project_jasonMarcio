@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MyContext } from "./MyContext";
+import { MyContext } from "./MyContext.js";
 import { useNavigate } from "react-router-dom";
 
 export default function Container(props) {
@@ -17,8 +17,7 @@ export default function Container(props) {
       setProducts(result)
     })
 
-
-  })
+  }, [])
 
   return (
     <MyContext.Provider
