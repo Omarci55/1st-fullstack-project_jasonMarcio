@@ -55,11 +55,11 @@ export default function NavigationBar({ product }) {
                     {/* {client ? <> */}
 
                     <LinkContainer to="/order"> 
-                        <NavLink>Order</NavLink>
+                        <Nav.Link>Order</Nav.Link>
                     </LinkContainer>
                     
                     <LinkContainer to="/profile"> 
-                        <NavLink>Profile</NavLink>
+                        <Nav.Link>Profile</Nav.Link>
                     </LinkContainer>
                     
 
