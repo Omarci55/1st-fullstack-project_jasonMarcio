@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import  { Link } from "react-router-dom" 
-import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap"
+import { Row, Col, Image, ListGroup, Card, Button, Container } from "react-bootstrap"
 import axios from 'axios'
 
 
-const ProductPage = ({match})  => {
+const SingleProductPage = ({match})  => {
 
     const [product, setProduct] = useState({})
 
@@ -18,7 +18,8 @@ const ProductPage = ({match})  => {
       }, [match])
 
   return (
-    <>
+    <Container>
+   
     <Link className='btn btn-light my-3' to="/">
         Go back
     </Link>
@@ -62,14 +63,14 @@ const ProductPage = ({match})  => {
                 </ListGroup.Item>
 
                 <ListGroup.Item>
-                    <Button className="btn-block" type="button">
+                    <Button variant="light" className="btn-block" type="button">
                         Add To Cart
                     </Button>
                 </ListGroup.Item>
             </Card>
         </Col>
     </Row>
-    </>
+    </Container>
   )
 }
-export default ProductPage
+export default SingleProductPage
