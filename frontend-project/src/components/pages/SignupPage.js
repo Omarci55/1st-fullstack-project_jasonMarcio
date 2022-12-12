@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Form, Button, Container, Row, Col, InputGroup, /* Toast, FormGroup */ } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
