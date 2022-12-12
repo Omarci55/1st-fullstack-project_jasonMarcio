@@ -14,7 +14,7 @@ export default function Container(props) {
     .then(res => res.json())
     .then(result => {
       console.log(result)
-      setProducts(result)
+      setProducts(result.data)
     })
 
   }, [])

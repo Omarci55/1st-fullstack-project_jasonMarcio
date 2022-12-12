@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap"
 import NavigationBar from './components/header/NavigationBar'
 import Footer from './components/Footer'
 import HomePage from "./components/pages/homepage/HomePage"
-import ProductPage from './components/pages/SingleProductPage'
+import SingleProductPage from './components/pages/SingleProductPage'
 import LoginPage from './components/pages/LoginPage'
 import ProfilePage from './components/pages/ProfilePage'
 import SignupPage from './components/pages/SignupPage'
@@ -36,7 +36,7 @@ function App() {
                 <Route path="/" element={<HomePage/>}/>
                 {/* <Route path="/" component={HomePage} exact/>  */} 
 
-                <Route path="/product/:id" element={  <ProductPage/>} />
+                <Route path="/products/:id" element={  <SingleProductPage/>} />
 
                 <Route path="/water" element={  <Water />} />
                 <Route path="/bier" element={  <Bier />} />

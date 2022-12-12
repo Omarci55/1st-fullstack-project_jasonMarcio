@@ -3,10 +3,11 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'; */
 //import { MyContext } from './context/MyContext.js';
 import { Form, Button, Container } from "react-bootstrap"
+import { MyContext } from '../context/MyContext'
 
 export default function LoginPage() {
 
-  //const { setUser } = useContext(MyContext)
+  const { setUser } = useContext(MyContext)
 
   const loginUser = (e) => {
 

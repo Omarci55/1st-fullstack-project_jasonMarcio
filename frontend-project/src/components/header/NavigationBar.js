@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 //import { MyContext } from "../context/MyContext"
 import { Navbar, Nav, Container, NavDropdown, Button} from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
+import { NavLink } from 'react-router-dom'
 
 export default function NavigationBar({ product }) {
 
@@ -10,8 +11,8 @@ export default function NavigationBar({ product }) {
   return (
 
     <header className='nav-header'>
-     
-        <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+    
+        <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
             <Container >
                 <LinkContainer to="/"> 
                     <Navbar.Brand><h1>Our Shop</h1></Navbar.Brand>
@@ -32,37 +33,33 @@ export default function NavigationBar({ product }) {
                     </LinkContainer> */}
 
                     <NavDropdown title="Products" id="basic-nav-dropdown">              
-                        <NavDropdown.Item to="/water">
-                            Water
+                        <NavDropdown.Item>
+                            <NavLink to="/water">Water</NavLink>
                         </NavDropdown.Item>
 
-                        <NavDropdown.Item to="/wines">
-                            Wines
+                        <NavDropdown.Item>
+                            <NavLink to="/wines">Wine</NavLink>
                         </NavDropdown.Item>
 
-                        <NavDropdown.Item href="/bier">
-                            Bier
+                        <NavDropdown.Item>
+                            <NavLink to="/bier">Bier</NavLink>
                         </NavDropdown.Item>
 
-                        <NavDropdown.Item href="/soda">
-                            Soda
+                        <NavDropdown.Item>
+                            <NavLink to="/soda">Soda</NavLink>
                         </NavDropdown.Item>
 
-                        {/* <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">
-                            Separated link
-                        </NavDropdown.Item> */}
                     </NavDropdown>
 
 
                     {/* {client ? <> */}
 
                     <LinkContainer to="/order"> 
-                        <Nav.Link>Order</Nav.Link>
+                        <NavLink>Order</NavLink>
                     </LinkContainer>
                     
                     <LinkContainer to="/profile"> 
-                        <Nav.Link>Profile</Nav.Link>
+                        <NavLink>Profile</NavLink>
                     </LinkContainer>
                     
 

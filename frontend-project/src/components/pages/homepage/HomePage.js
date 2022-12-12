@@ -1,24 +1,26 @@
 import axios from 'axios'
-import React, { useEffect, useState } /* { useContext, } */ from 'react'
+import React, { useContext, useEffect, useState } /* { useContext, } */ from 'react'
 import { Row, Col, Container, Card } from "react-bootstrap"
 //import { MyContext } from '../context/MyContext'
 import Product from './ProductCard'
 import CarouselHome from './CarouselHome'
+import { MyContext } from "../../context/MyContext"
 
 //import Products from './products/Products'
 
 const HomePage = () => {
-  //const { products } = useContext(MyContext)
-  const [ products, setProducts ] = useState([])
+  const { products, setProducts } = useContext(MyContext)
+  console.log(products)
+  //const [ products, setProducts ] = useState([])
 
-  useEffect( () => {
+  /* useEffect( () => {
     const fetchProducts = async () => {
       const { data } = await axios.get("/products")
 
       setProducts(data.data)
     }
     fetchProducts()
-  }, [])
+  }, []) */
   
   return (
     <>
@@ -28,7 +30,6 @@ const HomePage = () => {
             <Container>
               <CarouselHome/>
             </Container>
-
           
         </Container>
         
@@ -41,7 +42,7 @@ const HomePage = () => {
 
             {products.map( product => (
 
-                <Col sm={12} md={8} lg={4} xl={3}>
+                <Col sm={12} md={6} lg={4} xl={3}>
                   <Product 
                   key={product._id}
                   product={product}/>

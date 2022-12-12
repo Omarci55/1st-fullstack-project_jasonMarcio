@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "638f47bfaeab21354af54f88"
+  },
+  "name": "test",
+  "description": "dsd",
+  "brand": "xx",
+  "category": "xx",
+  "price": 123,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670334399338"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670334399338"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638f544ed48dd992a4f3cd79"
+  },
+  "name": "water adel",
+  "description": "Das St. Primus Heilwasser von Adelholzener unterstützt die Funktion von Magen und Darm sowie die Harnausscheidung. Zur Förderung der Verdauung zu den Hauptmahlzeiten ca. 300 ml trinken. Für die Unterstützung der Harnausscheidung über den Tag verteilt 1,5 bis 2,25 l trinken.",
+  "brand": "Adel",
+  "category": "water",
+  "price": 1.09,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670337614920"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670337614920"
+    }
+  },
+  "__v": 0
+}]
