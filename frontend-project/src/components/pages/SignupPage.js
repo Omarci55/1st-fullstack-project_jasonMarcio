@@ -1,18 +1,50 @@
-import React from 'react'
-import { Form, Button, Container, Row, Col, InputGroup } from "react-bootstrap"
+import React from 'react';
+import { Form, Button, Container, Row, Col, InputGroup, /* Toast, FormGroup */ } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 export default function SignupPage() {
 
+  const navigate = useNavigate()
+
+  const registerUser = (event) => {
+    event.preventDefault()
+    
+    const data = new FormData(event.target) // --> requires passing name attribute
+
+    // sending data to backend
+    fetch("/users",
+      {method: "POST", body: data} //--> attaching data to body
+    )
+    .then(res => res.json()) // res coming from server
+    .then( result => {
+
+      if(result.success){
+         toast.success('Sign Up Successful!')
+         setTimeout(() => {
+          navigate("/login") // --> redirect user to /login after result.success evaluated true
+         }, 2000)
+
+      } else {
+        toast.error(JSON.stringify(result.message))
+
+      }
+    })
+    
+  }
+
+
   return (
 
     <Container>
-        <Form>
+        <Form onSubmit={registerUser}>
             <Row className="mb-3">
 
             <Form.Group as={Col} md="4" controlId="validationCustom01">
             <Form.Label>First name</Form.Label>
             <Form.Control
+                name = 'fName'
                 required
                 type="text"
                 placeholder="First name"
@@ -23,6 +55,7 @@ export default function SignupPage() {
             <Form.Group as={Col} md="4" controlId="validationCustom02">
             <Form.Label>Last name</Form.Label>
             <Form.Control
+                name = 'lName'
                 required
                 type="text"
                 placeholder="Last name"
@@ -49,12 +82,12 @@ export default function SignupPage() {
         <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="email" placeholder="Enter email" name='email'/>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Password" name='password'/>
             </Form.Group>
         </Row>
 
@@ -84,10 +117,12 @@ export default function SignupPage() {
             </Form.Group>
         </Row> */}
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onSubmit={registerUser}>
             Submit
         </Button>
     </Form>
+
+     <Toaster position='top-center' />
 
     </Container>
   )
