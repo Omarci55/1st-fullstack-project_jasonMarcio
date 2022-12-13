@@ -46,7 +46,7 @@ const usersSchema = new Schema({
     orders: [
         {
             type: Schema.Types.ObjectId,
-            ref: "orders"
+            ref: "Order"
         }
     ]
 }, 
@@ -64,8 +64,10 @@ usersSchema.virtual("fullName").get(function() {
 })
 
 usersSchema.pre("save", function(next) {
-    const hashedPassword = bcrypt.hashSync(this.password, 10)
-    this.password = hashedPassword;
+    if(this.isModified("password")){
+        const hashedPassword = bcrypt.hashSync(this.password, 10)
+        this.password = hashedPassword
+    }
 
     next()
 })
