@@ -37,20 +37,20 @@ export default function NavigationBar({ product }) {
                      
 
                     <NavDropdown title="Products" id="basic-nav-dropdown">              
-                        <NavDropdown.Item>
-                            <Nav.Link to="/water">Water</Nav.Link>
+                        <NavDropdown.Item >
+                            <NavLink to="/water" style={{ textDecoration: 'none'}}>Water</NavLink>
                         </NavDropdown.Item>
 
                         <NavDropdown.Item>
-                            <Nav.Link to="/wines">Wine</Nav.Link>
+                            <NavLink to="/wines" style={{ textDecoration: 'none'}}>Wine</NavLink>
                         </NavDropdown.Item>
 
                         <NavDropdown.Item>
-                            <Nav.Link to="/bier">Bier</Nav.Link>
+                            <NavLink to="/bier" style={{ textDecoration: 'none'}}>Bier</NavLink>
                         </NavDropdown.Item>
 
                         <NavDropdown.Item>
-                            <Nav.Link to="/soda">Soda</Nav.Link>
+                            <NavLink to="/soda" style={{ textDecoration: 'none'}}>Soda</NavLink>
                         </NavDropdown.Item>
 
                     </NavDropdown>

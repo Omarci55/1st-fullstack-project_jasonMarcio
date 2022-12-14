@@ -7,6 +7,7 @@ export default function Orders() {
 
   const {user} = useContext(MyContext)
   console.log(user)
+  
   return (
     <div><h1>Orders</h1>
     <div> 

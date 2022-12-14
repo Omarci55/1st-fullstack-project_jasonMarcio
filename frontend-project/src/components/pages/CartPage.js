@@ -125,7 +125,7 @@ export default function CartPage() {
 
               <ListGroupItem>
                 <Button type="button" className="btn-block" onClick={placeOrder}>
-                  Proceed To Checkout
+                  Place Your Order
                 </Button>
               </ListGroupItem>
 

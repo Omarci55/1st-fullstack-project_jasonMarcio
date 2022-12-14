@@ -33,8 +33,7 @@ export default function EditProfile() {
       }
     });
   }
-
-
+  
   return (
 
     <Container>
