@@ -64,12 +64,33 @@ export const createUser = async (req, res, next) => {
 export const updateUser = async (req, res, next) => {
    
     try{
-        const id = req.params.id;
-        const updatedUser = await UsersCollection.findByIdAndUpdate(id, req.body, {new:true})
-        res.json({success: true, user:updatedUser})
+        let user = await UsersCollection.findById(req.params.id)
+        // if(req.file){
+        //     user.profileImage = `/${req.file.filename}`
+        // }
+        if(req.body.password){
+           user.password = req.body.password 
+        }
+        await user.save()
 
+        let body = { }
+        for(const key in req.body ){
+            if(req.body[key]!=="" && key !== "password"){
+                body[key] = req.body[key]
+            }
+        }
+        
+       const updatedUser = await UsersCollection.findByIdAndUpdate(req.params.id, body ,{new:true} ).populate({
+        path:"orders",
+        populate:{
+            path:"products",
+            model:"product"
+        }
+    })
+     /*   const updatedUser = await UsersCollection.findOneAndUpdate({_id:req.params.id} , {$set: body} ,{new:true} )  */
+        res.json({success:true, user:updatedUser})
     }
-    catch {
+    catch(err) {
         next(err)
     }
 }

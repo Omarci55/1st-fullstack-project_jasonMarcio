@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
-//import { MyContext } from "../context/MyContext"
+import { MyContext } from "../context/MyContext"
 import { Navbar, Nav, Container, NavDropdown, Button} from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 import { NavLink } from 'react-router-dom'
 
 export default function NavigationBar({ product }) {
 
-    //const { cart, client } = useContext(MyContext)
+    const { user, cart } = useContext(MyContext)
 
   return (
 
@@ -14,6 +14,8 @@ export default function NavigationBar({ product }) {
     
         <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
             <Container >
+
+
                 <LinkContainer to="/"> 
                     <Navbar.Brand><h1>Our Shop</h1></Navbar.Brand>
                 </LinkContainer>
@@ -24,79 +26,88 @@ export default function NavigationBar({ product }) {
 
                 <Nav className="ml-auto">
 
-                    <LinkContainer to="/"> 
-                        <Nav.Link>Home</Nav.Link>
+
+
+                     <LinkContainer   to="/">
+                        <Nav.Link>
+                            Home
+                        </Nav.Link>
                     </LinkContainer>
                     
-                    {/* <LinkContainer to="/product"> 
-                        <Nav.Link>Products</Nav.Link>
-                    </LinkContainer> */}
+                     
 
                     <NavDropdown title="Products" id="basic-nav-dropdown">              
                         <NavDropdown.Item>
-                            <NavLink to="/water">Water</NavLink>
+                            <Nav.Link to="/water">Water</Nav.Link>
                         </NavDropdown.Item>
 
                         <NavDropdown.Item>
-                            <NavLink to="/wines">Wine</NavLink>
+                            <Nav.Link to="/wines">Wine</Nav.Link>
                         </NavDropdown.Item>
 
                         <NavDropdown.Item>
-                            <NavLink to="/bier">Bier</NavLink>
+                            <Nav.Link to="/bier">Bier</Nav.Link>
                         </NavDropdown.Item>
 
                         <NavDropdown.Item>
-                            <NavLink to="/soda">Soda</NavLink>
+                            <Nav.Link to="/soda">Soda</Nav.Link>
                         </NavDropdown.Item>
 
                     </NavDropdown>
 
-
-                    {/* {client ? <> */}
-
-                    <LinkContainer to="/order"> 
-                        <Nav.Link>Order</Nav.Link>
+                    <LinkContainer  to="/cart">
+                        <Nav.Link>
+                            Cart <sup>{cart.length}</sup>
+                        </Nav.Link>
                     </LinkContainer>
+
+                    {user  ?
                     
-                    <LinkContainer to="/profile"> 
-                        <Nav.Link>Profile</Nav.Link>
+                    <>
+
+                    
+                        <LinkContainer to="/order"> 
+                            <Nav.Link>Order</Nav.Link>
+                        </LinkContainer>
+                        
+                        <LinkContainer to="/profile"> 
+                            <Nav.Link>Profile</Nav.Link>
+                        </LinkContainer>
+
+                        </> 
+                        :
+                        <>
+                    
+                        <LinkContainer to="/signup"> 
+                            <Nav.Link>Signup</Nav.Link>
+                        </LinkContainer>
+
+                        
+
+                    </> }
+
+                    {user === "isAdmin" &&
+                    
+                     <LinkContainer  to="/admin">
+                        <Nav.Link>
+                            Admin Panel
+                        </Nav.Link>
                     </LinkContainer>
-                    
 
-                     {/* </> */} 
-                     {/* : */}
-                     {/* <> */} 
-                     <LinkContainer to="/signup"> 
-                        <Nav.Link>Signup</Nav.Link>
-                    </LinkContainer>
-                
-                    {/* <LinkContainer to="/login"> 
-                        <Nav.Link>Login</Nav.Link>
-                    </LinkContainer> */}
-                    
+                   }
 
-                     {/* </> } */} 
-
-                     {/* {client && client.role === "admin" &&  */}
-                    
-                    <Nav.Link to="/admin">
-                        Admin Panel
-                    </Nav.Link>
-
-                    {/* }  */}
-
-                    <Nav.Link href="/cart">
-                        Cart
-                    </Nav.Link>
                 
                 
                 </Nav>
-
-                <Button variant="secondary">
-                    <LinkContainer to="/login"> 
+                   
+                   
+                    <Button>
+                        <LinkContainer to="/login"> 
                             <Nav.Link>Login</Nav.Link>
                         </LinkContainer>
                     </Button>
+                    
+                
                     
                 </Navbar.Collapse>
                 
