@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../context/MyContext';
 import { useNavigate } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 
 export default function ProfilePage() {
 
@@ -19,14 +18,24 @@ export default function ProfilePage() {
   }
 
   const deleteUser = () => {
-    // need function for delete user
+    fetch(`/users/${user._id}`,{method:"DELETE", headers:{
+      token:localStorage.getItem("token")
+    }})
+    .then(res=>res.json())
+    .then(result=>{
+      if(result.success){
+        setUser(null)
+        localStorage.removeItem("token")
+        navigate("/signup")
+      }
+    })
   }
 
 const deleteOrder = (id) => {
-  fetch(`http://localhost:10787/orders/${id}`,{
+  fetch(`/order/${id}`,{
     method:"DELETE", 
     headers:{token: localStorage.getItem("token")},
-})
+  })
   .then(res => res.json())
   .then(result => {
     if(result.success){
@@ -61,7 +70,5 @@ const deleteOrder = (id) => {
     <button onClick={deleteUser}>Delete User</button>
     </>}
 </div>  
-    // <Container> 
-    // </Container>
   );
 }
