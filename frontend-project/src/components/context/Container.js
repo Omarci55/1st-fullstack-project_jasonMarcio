@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Container(props) {
 
-  const [ user, setUser ] = useState([])
+  const [ user, setUser ] = useState(null)
   const [ cart, setCart ] = useState([])
   const [ products, setProducts ] = useState([])
   //const navigate = useNavigate()
