@@ -39,11 +39,13 @@ export const createOrder = async (req, res, next) => {
         const createOrder = new OrdersCollection(req.body)
         await createOrder.save()
 
-        const user = await UsersCollection.findById(createOrder.userId)
-        user.orders.push(createOrder._id)
-        await user.save()
+        const updatedUser = await UsersCollection.findByIdAndUpdate(createOrder.userId, {$push:{orders:createOrder._id}}).populate({path:"orders", populate:{path:"products", model:"product"}})
+        // const user = await UsersCollection.findById(createOrder.userId)
+        // .populate({path:"orders", populate:{path:"products", model:"product"}})
+        // user.orders.push(createOrder._id)
+        // await user.save()
 
-        res.json({success: true, createOrder})
+        res.json({success: true, data:updatedUser})
 
     }
 

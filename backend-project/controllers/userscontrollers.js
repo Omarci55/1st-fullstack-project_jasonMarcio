@@ -140,10 +140,10 @@ export const loginUsers = async(req, res, next) => {
                     }
                 )
 
-                const updatedUser = await UsersCollection.findByIdAndUpdate(user._id, {token: token}, {new:true})
+                const updatedUser = await UsersCollection.findByIdAndUpdate(user._id, {token: token}, {new:true}).populate({path:"orders", populate:{path:"products", model:"product"}})
 
-                res.cookie("token", token)
-                res.json({success: true, data: user})
+                res.header("token", token)
+                res.json({success: true, data: updatedUser})
 
             } else {
                 throw new Error("Password doesn't match")
