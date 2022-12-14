@@ -13,6 +13,8 @@ export default function CartPage() {
     const foundItem = cart.find((item) => item._id === id)
     foundItem.quantity++
     setCart([...cart])
+
+    localStorage.setItem("cart", JSON.stringify(cart))
   }
 
   const decrementQuantity = (id) => {
@@ -20,11 +22,16 @@ export default function CartPage() {
     if(foundItem.quantity === 1) {
 
       setCart(cart.filter((item) => item._id !== id))
+       localStorage.setItem("cart", JSON.stringify((cart.filter((item) => item._id !== id))))
 
     } else {
       foundItem.quantity--
       setCart([...cart])
+
+      localStorage.setItem("cart", JSON.stringify(cart))
+
     }
+
   }
 
   const placeOrder = () => {
@@ -50,6 +57,7 @@ export default function CartPage() {
               console.log(result)
               setUser(result.data)
               setCart([])
+              localStorage.removeItem("cart")
               
             }
           });

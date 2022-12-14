@@ -4,7 +4,6 @@ import { Row, Col, Image, ListGroup, Card, Button, Container } from "react-boots
 import axios from 'axios'
 import { MyContext } from '../context/MyContext'
 
-
 const SingleProductPage = ({match})  => {
 
     const [product, setProduct] = useState({})
@@ -31,7 +30,7 @@ const SingleProductPage = ({match})  => {
 
         <Row>
             <Col md={6}>
-                <Image src={product.image} alt={product.name}/>
+                <Image src={product.img} alt={product.name}/>
             </Col>
             
             <Col md={3}>

@@ -17,6 +17,9 @@ export default function Container(props) {
       setProducts(result.data)
     })
 
+    if(localStorage.getItem("cart")) {
+      setCart(JSON.parse(localStorage.getItem("cart")))
+    }
   }, [])
 
   return (

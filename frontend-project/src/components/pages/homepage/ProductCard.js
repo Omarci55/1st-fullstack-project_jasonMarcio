@@ -12,8 +12,15 @@ const Product = ({ product }) => {
 
     if( foundItem) {
       foundItem.quantity++
+
+      localStorage.setItem("cart", JSON.stringify(cart))
+
       setCart([...cart])
+      
     } else {
+
+      localStorage.setItem("cart", JSON.stringify([...cart, {...product, quantity: 1}]))
+
       setCart([...cart, {...product, quantity: 1}])
     }
   }
