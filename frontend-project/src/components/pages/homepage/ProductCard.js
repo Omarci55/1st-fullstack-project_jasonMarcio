@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Button } from "react-bootstrap"
+import { MyContext } from '../../context/MyContext'
 
 const Product = ({ product }) => {
+
+  const { cart, setCart, user } = useContext(MyContext)
+
+  const addItemIntoCart = (product) => {
+    const foundItem = cart.find( item => item._id === product._id)
+
+    if( foundItem) {
+      foundItem.quantity++
+      setCart([...cart])
+    } else {
+      setCart([...cart, {...product, quantity: 1}])
+    }
+  }
 
   return (
    <Card className="my-3 p-3 rounded">
@@ -29,7 +43,7 @@ const Product = ({ product }) => {
             </div>
           </Card.Text>
 
-          <Button>
+          <Button onClick={() => addItemIntoCart(product)}>
               Add to cart
           </Button>
           
