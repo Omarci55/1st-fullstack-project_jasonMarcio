@@ -63,7 +63,7 @@ export default function SignupPage() {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+            {/* <Form.Group as={Col} md="4" controlId="validationCustomUsername">
           <Form.Label>Username</Form.Label>
           <InputGroup hasValidation>
             <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -77,7 +77,7 @@ export default function SignupPage() {
               Please choose a username.
             </Form.Control.Feedback>
           </InputGroup>
-        </Form.Group>
+        </Form.Group> */}
             </Row>
         <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridEmail">
