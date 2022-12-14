@@ -61,9 +61,9 @@ export default function NavigationBar({ product }) {
                         </Nav.Link>
                     </LinkContainer>
 
-                    {user  ?
+                    {/* {user  ?
                     
-                    <>
+                    <> */}
 
                     
                         <LinkContainer to="/order"> 
@@ -74,17 +74,15 @@ export default function NavigationBar({ product }) {
                             <Nav.Link>Profile</Nav.Link>
                         </LinkContainer>
 
-                        </> 
+                        {/* </> 
                         :
-                        <>
+                        <> */}
                     
                         <LinkContainer to="/signup"> 
                             <Nav.Link>Signup</Nav.Link>
                         </LinkContainer>
 
-                        
-
-                    </> }
+                    {/* </> } */}
 
                     {user === "isAdmin" &&
                     
@@ -96,7 +94,6 @@ export default function NavigationBar({ product }) {
 
                    }
 
-                
                 
                 </Nav>
                    
