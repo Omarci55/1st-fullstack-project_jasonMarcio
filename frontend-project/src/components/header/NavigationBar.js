@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { MyContext } from "../context/MyContext"
-import { Navbar, Nav, Container, NavDropdown, Button} from "react-bootstrap"
+import { Navbar, Nav, Container, NavDropdown, Button, Badge} from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 import { NavLink } from 'react-router-dom'
 
@@ -57,15 +57,31 @@ export default function NavigationBar({ product }) {
 
                     <LinkContainer  to="/cart">
                         <Nav.Link>
-                            Cart <sup>{cart.length}</sup>
+                            Cart <Badge bg="secondary">{cart.length}</Badge>
                         </Nav.Link>
                     </LinkContainer>
 
-                    {user  ?
+                    {!user  ?
                     
                     <>
 
+                        <LinkContainer to="/signup"> 
+                            <Nav.Link>Signup</Nav.Link>
+                        </LinkContainer>
+
+                        
+                        <LinkContainer to="/login"> 
+                            <Nav.Link>
+                                 Login
+                            </Nav.Link>
+                        </LinkContainer>
+                         
                     
+
+                        </> 
+                        :
+                        <>
+
                         <LinkContainer to="/order"> 
                             <Nav.Link>Order</Nav.Link>
                         </LinkContainer>
@@ -73,17 +89,7 @@ export default function NavigationBar({ product }) {
                         <LinkContainer to="/profile"> 
                             <Nav.Link>Profile</Nav.Link>
                         </LinkContainer>
-
-                        </> 
-                        :
-                        <>
                     
-                        <LinkContainer to="/signup"> 
-                            <Nav.Link>Signup</Nav.Link>
-                        </LinkContainer>
-
-                        
-
                     </> }
 
                     {user === "isAdmin" &&
@@ -100,16 +106,7 @@ export default function NavigationBar({ product }) {
                 
                 </Nav>
                    
-                   
-                    <Button>
-                        <LinkContainer to="/login"> 
-                            <Nav.Link>Login</Nav.Link>
-                        </LinkContainer>
-                    </Button>
-                    
-                
-                    
-                </Navbar.Collapse>
+                   </Navbar.Collapse>
                 
             </Container>
         </Navbar>
