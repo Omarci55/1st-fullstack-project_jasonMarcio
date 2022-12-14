@@ -1,4 +1,4 @@
-const products = [
+/* const products = [
   {
     name: 'water-adel',
     image: '/images/water/water-adel.jpg',
@@ -139,3 +139,4 @@ const products = [
 ]
 
 export default products
+ */

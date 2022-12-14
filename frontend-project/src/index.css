@@ -23,3 +23,14 @@
 .active {
   text-decoration: none;
 }
+
+.span-inc{
+  margin-right:10px;
+  cursor: pointer;
+}
+
+.span-dec{
+  margin-left: 10px;
+  cursor: pointer;
+
+}
