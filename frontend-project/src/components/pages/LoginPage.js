@@ -46,7 +46,7 @@ export default function LoginPage() {
   return (
 
     <Container >
-
+      <h1>Sign in</h1>
       <Toaster position='top-center'/>
       <Form onSubmit={loginUser} className='container-sm'>
         <Form.Group className="mb-3" controlId="formBasicEmail">

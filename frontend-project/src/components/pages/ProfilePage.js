@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../context/MyContext';
 import { useNavigate } from 'react-router-dom';
+import { Container, ListGroup, Row, Col, Card, ListGroupItem, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 export default function ProfilePage() {
 
@@ -46,29 +48,60 @@ const deleteOrder = (id) => {
 
   return (
     <div>
-    <h1>Profile</h1>
-    {user && <> 
-    <h2>{user.fullName}</h2>
-    <h3>{user.email}</h3>
-     <p>{user.firstName}</p>
-      <img src={user.profileImage} width="300" alt="profileImage" />
-    <h2>User Orders </h2>
-    <ul>
-      {user.orders.map((order) => {
-        return (
-          <div key={order._id}>
-            <h3>{order._id}</h3>
-            <h4>$ {order.totalPrice}</h4>
-            <button onClick={()=>deleteOrder(order._id)}>delete order</button>
-          </div>
-        );
-      })}
-    </ul>
 
-    <button onClick={editProfile}>Update Profile</button>
-    <button onClick={logout}>Logout</button>
-    <button onClick={deleteUser}>Delete User</button>
-    </>}
+    <Container>
+      <h1>Welcome, {user.fullName}</h1>
+
+      <Row>
+
+      <Col md={3}>
+        <ListGroup>
+          <ListGroupItem mb={4}>
+            <Link className='link'  onClick={editProfile}>
+              Update Profile
+            </Link>
+          </ListGroupItem>
+            
+          <ListGroupItem>
+            <Link className='link'  to='/orders'>
+              View your Orders
+            </Link>
+          </ListGroupItem>
+
+          <ListGroupItem>
+            <Link className='link'  to='/orders'>
+              Delivery Address
+            </Link>
+          </ListGroupItem>
+
+          <ListGroupItem>
+            <Link className='link'  onClick={logout}>
+              Logout
+            </Link>
+          </ListGroupItem>
+
+          <ListGroupItem>
+            <Link className='link'  onClick={deleteUser}>
+              Delete Account
+            </Link>
+          </ListGroupItem>
+          
+        </ListGroup>
+      </Col>
+
+      <Col md="9">
+        <ListGroup>
+          <ListGroupItem>
+
+          </ListGroupItem>
+        </ListGroup>
+
+      </Col>
+
+      </Row>
+
+    </Container>
+
 </div>  
   );
 }
