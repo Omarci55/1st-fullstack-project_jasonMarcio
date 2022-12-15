@@ -92,14 +92,30 @@ const deleteOrder = (id) => {
       <Col md="9">
         <ListGroup>
           <ListGroupItem>
-
+          <h3>Your Orders </h3>
+            <ul>
+              {user.orders.map((order) => {
+                return (
+                  <div key={order._id}>
+                    <h4>{order._id}</h4>
+                    <h5> {order.totalPrice} €</h5>
+                    <button onClick={()=>deleteOrder(order._id)}>delete order</button>
+                  </div>
+                );
+              })}
+            </ul>
           </ListGroupItem>
         </ListGroup>
 
       </Col>
-
+      <Col>
+        <ListGroup>
+          <ListGroupItem>
+          
+          </ListGroupItem>
+        </ListGroup>
+      </Col>
       </Row>
-
     </Container>
 
 </div>  
